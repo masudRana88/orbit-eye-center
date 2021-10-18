@@ -7,3 +7,6 @@
     padding: 15px 25px !important;
     border-radius: 15px !important;
 }
+.appoinment-btn:hover{
+    transform: scale(98.5%);
+}

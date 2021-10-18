@@ -10,7 +10,7 @@ const Services = () => {
         <div className="container mt-5">
             <div className="row mt-5">
                 <div className="col-lg-6 col-md-12 col-sm-12">
-                    <h2 className="font-oswald"><span className="color-reguler">Servises</span> We're Offering TO Our Clients</h2>
+                    <h2 className="font-oswald fw-bold fs-1"><span className="color-reguler">Servises</span> We're Offering TO Our Clients</h2>
                 </div>
             </div>
             {/* cards */}

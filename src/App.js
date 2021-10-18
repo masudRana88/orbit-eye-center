@@ -10,6 +10,7 @@ import AboutUs from "./components/page/AboutUs/AboutUs";
 import Contact from "./components/page/Contact/Contact";
 import Home from "./components/page/Home/Home/Home";
 import OurDoctors from "./components/page/OurDoctors/OurDoctors";
+import ServicesDetails from "./components/page/ServicesDetailes/ServicesDetails";
 import ServicesPage from "./components/page/ServicesPage/ServicesPage";
 import NavBar from "./components/page/Shared/NavBar/NavBar";
 
@@ -36,6 +37,9 @@ function App() {
         <Route exact path="/aboutus">
           <AboutUs></AboutUs>
         </Route>
+        <Router path="/services/:servicesId">
+          <ServicesDetails></ServicesDetails>
+        </Router>
       </Switch>
     </Router>
   );
