@@ -15,3 +15,6 @@
 .bg-color-reguler{
     background-color: #02C18D;
 }
+.my-contsiner{
+    min-height: 100vh;
+}
