@@ -1,0 +1,17 @@
+/* google font */
+@import url('https://fonts.googleapis.com/css2?family=Georama&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap');
+
+
+.font-georama{
+    font-family: 'Georama', sans-serif;
+}
+.font-oswald{
+    font-family: 'Oswald', sans-serif;
+}
+.color-reguler{
+    color: #02C18D;
+}
+.bg-color-reguler{
+    background-color: #02C18D;
+}
