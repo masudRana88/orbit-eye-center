@@ -12,6 +12,7 @@ import Home from "./components/page/Home/Home/Home";
 import OurDoctors from "./components/page/OurDoctors/OurDoctors";
 import ServicesDetails from "./components/page/ServicesDetailes/ServicesDetails";
 import ServicesPage from "./components/page/ServicesPage/ServicesPage";
+import Footer from "./components/page/Shared/Footer/Footer";
 import NavBar from "./components/page/Shared/NavBar/NavBar";
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
           <ServicesDetails></ServicesDetails>
         </Router>
       </Switch>
+      <Footer></Footer>
     </Router>
   );
 }
