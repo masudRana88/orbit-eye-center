@@ -16,10 +16,12 @@ import ServicesDetails from "./components/page/ServicesDetailes/ServicesDetails"
 import ServicesPage from "./components/page/ServicesPage/ServicesPage";
 import Footer from "./components/page/Shared/Footer/Footer";
 import NavBar from "./components/page/Shared/NavBar/NavBar";
+import AuthProvider from "./ContexApi/AuthProvider/AuthProvider";
 
 function App() {
   return (
-    <Router>
+    <AuthProvider>
+      <Router>
       <NavBar></NavBar>
       <Switch>
         <Route exact path="/">
@@ -52,6 +54,7 @@ function App() {
       </Switch>
       <Footer></Footer>
     </Router>
+    </AuthProvider>
   );
 }
 

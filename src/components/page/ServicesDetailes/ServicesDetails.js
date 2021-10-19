@@ -2,8 +2,8 @@ import React from 'react';
 import { useParams } from 'react-router';
 
 const ServicesDetails = () => {
-    const { services } = useParams();
-    console.log(services)
+    const { servicesId } = useParams()
+    console.log(servicesId)
     return (
         <div>
             

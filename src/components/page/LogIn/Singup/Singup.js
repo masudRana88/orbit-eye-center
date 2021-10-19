@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import useFirebase from '../../../Hooks/useFirebase';
+import useAuth from '../../../Hooks/useAuth';
 
 const Singup = () => {
-    const { user,setInputPass,setInputEmail, singInWithEmaial, loginWirhGoogle } = useFirebase();
+    const { user,setInputPass,setInputEmail, setInputName, singInWithEmaial, loginWirhGoogle, loginWithGithub } = useAuth();
     // react hoock form
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data =>  console.log(data);
     // state on this page
-    // const getName = (e) => {
-    //     setName(e.target.value)
-    // }
+    const getName = (e) => {
+        setInputName(e.target.value)
+    }
     const getEmail = (e) => {
         setInputEmail(e.target.value)
     }
@@ -25,7 +25,7 @@ const Singup = () => {
                 <div className="col-lg-5 col-md-5 col-sm-12 mx-auto">
                     <h2 className="text-center mt-5 mb-3">Create An Account</h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <input defaultValue="" placeholder="Your Full Name" type="text" className="form-control mb-3" {...register("name", { required: true })} />
+                        <input defaultValue="" placeholder="Your Full Name" type="text" className="form-control mb-3" {...register("name", { required: true })} onFocus={getName} />
                             
                         <input defaultValue="" placeholder="Your Email" type="email" className="form-control mb-3" {...register("email" , { required: true })} onBlur={getEmail} />
                         
@@ -42,7 +42,7 @@ const Singup = () => {
                     <p className="text-center mt-2">Login with</p>
                     <div className="text-center mb-3">
                         <button className="me-1 btn-firebase btn-fb"><i class="fab fa-facebook-f"></i></button>
-                        <button className="me-1 btn-firebase btn-tw"><i class="bi bi-twitter"></i></button>
+                        <button className="me-1 btn-firebase btn-gh"  onClick={loginWithGithub}><i class="bi bi-github"></i></button>
                         <button className="btn-firebase btn-go" onClick={loginWirhGoogle}><i class="bi bi-google"></i></button>
                     </div>
                 </div>

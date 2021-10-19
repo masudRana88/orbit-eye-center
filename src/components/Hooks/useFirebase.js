@@ -1,4 +1,4 @@
-import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signOut,signInWithEmailAndPassword} from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider , createUserWithEmailAndPassword, onAuthStateChanged, signOut,signInWithEmailAndPassword, updateProfile} from "firebase/auth";
 import { useEffect, useState } from "react";
 import initializeAuthentication from "../../Firebase/firebase.init";
 initializeAuthentication()
@@ -12,6 +12,20 @@ const useFirebase = () => {
     const [iputPass, setInputPass] = useState('');
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
+    const gitHubprovider = new GithubAuthProvider();
+
+
+     // upadate name 
+    const updateUserName = () => {
+        console.log("run hoise")
+        updateProfile(auth.currentUser, {
+        displayName: inputName
+        }).then((result) => {
+            console.log(result)
+        }).catch((error) => {
+        });
+        
+    }
 
     // login with google
     const loginWirhGoogle = () => {
@@ -22,6 +36,15 @@ const useFirebase = () => {
             .catch(error => {
             
         })
+    }
+    // login with Github
+    const loginWithGithub = () => {
+        signInWithPopup(auth, gitHubprovider)
+            .then((result) => {
+             setUser(result.user)
+            })
+            .catch((error) => {
+        });
     }
     // login with emain
     const logInwithEmail = () => {
@@ -44,9 +67,11 @@ const useFirebase = () => {
         })
         .catch((error) => {
         console.log(error.code)
-        console.log(error.message)
-        // ..
-    });
+            console.log(error.message)
+        })
+        .finally(() => {
+            updateUserName()
+        })
     }
 
     // Sing out
@@ -58,7 +83,7 @@ const useFirebase = () => {
         });
     }
    
-
+   
     // Observe user state change
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
@@ -74,10 +99,12 @@ const useFirebase = () => {
         user,
         setInputEmail,
         setInputPass,
+        setInputName,
         logOut,
         singInWithEmaial,
         logInwithEmail,
-        loginWirhGoogle
+        loginWirhGoogle,
+        loginWithGithub
     }
 }
 
