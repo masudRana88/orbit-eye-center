@@ -1,3 +1,4 @@
+import { NotFound } from "http-errors";
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -6,6 +7,7 @@ import {
   Link
 } from "react-router-dom";
 import './App.css';
+import PageNotFound from "./components/page/404/PageNotFound";
 import AboutUs from "./components/page/AboutUs/AboutUs";
 import Contact from "./components/page/Contact/Contact";
 import Home from "./components/page/Home/Home/Home";
@@ -16,8 +18,8 @@ import ServicesPage from "./components/page/ServicesPage/ServicesPage";
 import Footer from "./components/page/Shared/Footer/Footer";
 import NavBar from "./components/page/Shared/NavBar/NavBar";
 import SingleService from "./components/page/SingleService/SingleService";
+import PrivateRouter from "./components/PrivateRouter/PrivateRouter";
 import AuthProvider from "./ContexApi/AuthProvider/AuthProvider";
-
 function App() {
   return (
     <AuthProvider>
@@ -48,8 +50,11 @@ function App() {
         <Route exact path="/services">
           <ServicesPage></ServicesPage>
         </Route>
-        <Route exact path="/service/:serviceId">
+        <PrivateRouter exact path="/service/:serviceId">
             <SingleService></SingleService>
+          </PrivateRouter>
+        <Route path="*">
+          <PageNotFound></PageNotFound>    
         </Route>
       </Switch>
       <Footer></Footer>

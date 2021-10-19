@@ -10,6 +10,8 @@ const useFirebase = () => {
     const [inputName, setInputName] = useState('');
     const [inputEmail, setInputEmail] = useState('');
     const [iputPass, setInputPass] = useState('');
+    const [isLoding, setIsLoding] = useState(true)
+
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
     const gitHubprovider = new GithubAuthProvider();
@@ -17,38 +19,41 @@ const useFirebase = () => {
 
      // upadate name 
     const updateUserName = () => {
-        console.log("run hoise")
         updateProfile(auth.currentUser, {
         displayName: inputName
         }).then((result) => {
 
         }).catch((error) => {
             
-        });
-        
+        })
     }
 
     // login with google
     const loginWirhGoogle = () => {
+        setIsLoding(true)
         signInWithPopup(auth, googleProvider)
             .then(result => {
             setUser(result.user)
             })
             .catch(error => {
             
-        })
+            })
+        .finally(()=>setIsLoding(false))
     }
     // login with Github
     const loginWithGithub = () => {
+        setIsLoding(true)
         signInWithPopup(auth, gitHubprovider)
             .then((result) => {
              setUser(result.user)
             })
             .catch((error) => {
-        });
+            })
+        .finally(()=>setIsLoding(false))
     }
     // login with emain
     const logInwithEmail = () => {
+        setIsLoding(true)
          signInWithEmailAndPassword(auth, inputEmail, iputPass)
         .then((userCredential) => {
             setUser(userCredential.user)
@@ -56,11 +61,13 @@ const useFirebase = () => {
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-        });
+        })
+        .finally(()=>setIsLoding(false))
     }
 
     // sing up with emaill
     const singInWithEmaial = () => {
+        setIsLoding(true)
         createUserWithEmailAndPassword(auth, inputEmail, iputPass)
         .then((userCredential) => {
             // Signed in 
@@ -72,16 +79,19 @@ const useFirebase = () => {
         })
         .finally(() => {
             updateUserName()
+            setIsLoding(false)
         })
     }
 
     // Sing out
     const logOut = () => {
+        setIsLoding(true)
          signOut(auth).then(() => {
             setUser({})
         }).catch((error) => {
         // An error happened.
-        });
+        })
+        .finally(()=>setIsLoding(false))
     }
    
    
@@ -94,6 +104,7 @@ const useFirebase = () => {
            setUser({})
         }
         });
+        setIsLoding(false)
     },[])
 
     return {
@@ -102,6 +113,7 @@ const useFirebase = () => {
         setInputPass,
         setInputName,
         logOut,
+        isLoding,
         singInWithEmaial,
         logInwithEmail,
         loginWirhGoogle,
