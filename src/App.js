@@ -9,6 +9,8 @@ import './App.css';
 import AboutUs from "./components/page/AboutUs/AboutUs";
 import Contact from "./components/page/Contact/Contact";
 import Home from "./components/page/Home/Home/Home";
+import Login from "./components/page/LogIn/Login/Login";
+import Singup from "./components/page/LogIn/Singup/Singup";
 import OurDoctors from "./components/page/OurDoctors/OurDoctors";
 import ServicesDetails from "./components/page/ServicesDetailes/ServicesDetails";
 import ServicesPage from "./components/page/ServicesPage/ServicesPage";
@@ -37,6 +39,12 @@ function App() {
         </Route>
         <Route exact path="/aboutus">
           <AboutUs></AboutUs>
+        </Route>
+        <Route exact path="/login">
+          <Login></Login>
+        </Route>
+        <Route exact path="/Singup">
+         <Singup></Singup>
         </Route>
         <Router path="/services/:servicesId">
           <ServicesDetails></ServicesDetails>

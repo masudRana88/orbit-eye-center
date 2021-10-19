@@ -15,6 +15,9 @@
 .bg-color-reguler{
     background-color: #02C18D;
 }
-.my-contsiner{
+.my-container{
     min-height: 100vh;
+}
+.my-container-500{
+    min-height: 50vh;
 }
