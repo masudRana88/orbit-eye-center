@@ -4,7 +4,7 @@ import initializeAuthentication from "../../Firebase/firebase.init";
 initializeAuthentication()
 
 
-
+// useFireBase
 const useFirebase = () => {
     const [user, setUser] = useState({})
     const [inputName, setInputName] = useState('');
