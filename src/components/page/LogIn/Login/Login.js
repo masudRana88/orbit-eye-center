@@ -6,7 +6,14 @@ import './Login.css'
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => console.log(data);
-    const { user, loginWirhGoogle } = useFirebase()
+    const { user, loginWirhGoogle, setInputPass, setInputEmail, logInwithEmail } = useFirebase()
+    
+    const getEmail = (e) => {
+        setInputEmail(e.target.value)
+    }
+    const getPass = (e) => {
+        setInputPass(e.target.value)
+    }
     return (
         <div className="container my-container">
             <div className="row">
@@ -14,15 +21,15 @@ const Login = () => {
                     <h2 className="text-center mt-5 mb-3">Please Login</h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
 
-                        <input defaultValue="" placeholder="Your Email" type="email" className="form-control mb-3" {...register("email" , { required: true })} />
+                        <input defaultValue="" placeholder="Your Email" type="email" className="form-control mb-3" {...register("email" , { required: true })} onBlur={getEmail}/>
                         
-                        <input defaultValue="" placeholder="Your Password" type="password" className="form-control mb-3" {...register("pass", { required: true })} />
+                        <input defaultValue="" placeholder="Your Password" type="password" className="form-control mb-3" {...register("pass", { required: true })} onBlur={getPass}/>
                         
                         {errors.email && <span>Email field is required</span>}
                         {errors.pass && <span>Email field is required</span>}
                         
                         {/* <input type="submit" /> */}
-                        <button className="btn w-100 bg-color-reguler text-light">Login</button>
+                        <button className="btn w-100 bg-color-reguler text-light" onClick={logInwithEmail}>Login</button>
                         <p className="mt-1 ms-1">New in Orbit ?<Link to="singup" className="nav-link d-inline">Create an Account </Link></p>
                     </form>
                     <p className="text-center mt-2">Login with</p>

@@ -1,4 +1,4 @@
-import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signOut,signInWithEmailAndPassword} from "firebase/auth";
 import { useEffect, useState } from "react";
 import initializeAuthentication from "../../Firebase/firebase.init";
 initializeAuthentication()
@@ -7,6 +7,9 @@ initializeAuthentication()
 
 const useFirebase = () => {
     const [user, setUser] = useState({})
+    const [inputName, setInputName] = useState('');
+    const [inputEmail, setInputEmail] = useState('');
+    const [iputPass, setInputPass] = useState('');
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
 
@@ -20,11 +23,21 @@ const useFirebase = () => {
             
         })
     }
+    // login with emain
+    const logInwithEmail = () => {
+         signInWithEmailAndPassword(auth, inputEmail, iputPass)
+        .then((userCredential) => {
+            setUser(userCredential.user)
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+        });
+    }
 
-    // sing in with emaill
-    const singInWithEmaial = (password) => {
-        const email ="mahim55@gmail.com"
-        createUserWithEmailAndPassword(auth, email, password)
+    // sing up with emaill
+    const singInWithEmaial = () => {
+        createUserWithEmailAndPassword(auth, inputEmail, iputPass)
         .then((userCredential) => {
             // Signed in 
             setUser(userCredential.user)
@@ -59,8 +72,11 @@ const useFirebase = () => {
 
     return {
         user,
+        setInputEmail,
+        setInputPass,
         logOut,
         singInWithEmaial,
+        logInwithEmail,
         loginWirhGoogle
     }
 }

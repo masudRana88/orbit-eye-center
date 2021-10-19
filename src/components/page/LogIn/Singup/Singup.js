@@ -4,12 +4,20 @@ import { Link } from 'react-router-dom';
 import useFirebase from '../../../Hooks/useFirebase';
 
 const Singup = () => {
-    const { user, singInWithEmaial, loginWirhGoogle } = useFirebase();
-    const [input, setInput] = useState()
+    const { user,setInputPass,setInputEmail, singInWithEmaial, loginWirhGoogle } = useFirebase();
+    // react hoock form
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
-    
-    console.log(input)
+    const onSubmit = data =>  console.log(data);
+    // state on this page
+    // const getName = (e) => {
+    //     setName(e.target.value)
+    // }
+    const getEmail = (e) => {
+        setInputEmail(e.target.value)
+    }
+    const getPass = (e) => {
+        setInputPass(e.target.value)
+    }
     return (
         <div>
              <div className="container my-container">
@@ -17,19 +25,18 @@ const Singup = () => {
                 <div className="col-lg-5 col-md-5 col-sm-12 mx-auto">
                     <h2 className="text-center mt-5 mb-3">Create An Account</h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
-
                         <input defaultValue="" placeholder="Your Full Name" type="text" className="form-control mb-3" {...register("name", { required: true })} />
                             
-                        <input defaultValue="" placeholder="Your Email" type="email" className="form-control mb-3" {...register("email" , { required: true })} />
+                        <input defaultValue="" placeholder="Your Email" type="email" className="form-control mb-3" {...register("email" , { required: true })} onBlur={getEmail} />
                         
-                        <input defaultValue="" placeholder="Your Password" type="password" className="form-control mb-3" {...register("pass", { required: true })} />
+                        <input defaultValue="" placeholder="Your Password" type="password" className="form-control mb-3" {...register("pass", { required: true })} onBlur={getPass} />
                         
                         {errors.name && <p className="text-danger">Email field is required  </p>}
                         {errors.email && <p className="text-danger">Email field is required  </p>}
                         {errors.pass && <p className="text-danger">Password field is required</p>}
                         
                         {/* <input type="submit" /> */}
-                        <button className="btn w-100 bg-color-reguler text-light" >Sing up</button>
+                        <button className="btn w-100 bg-color-reguler text-light" onClick={singInWithEmaial}>Sing up</button>
                         <p className="mt-1 ms-1">Have an Acount ?<Link to="login" className="nav-link login-link d-inline">Login</Link></p>
                     </form>
                     <p className="text-center mt-2">Login with</p>
