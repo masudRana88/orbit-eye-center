@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link} from "react-router-dom";
+import useFirebase from '../../../Hooks/useFirebase';
 
 
 const NavBar = () => {
+    const {user, logOut} = useFirebase()
     return (
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
@@ -28,7 +30,7 @@ const NavBar = () => {
                 </li>
                 </ul>
                 <div className="d-flex">
-                    <div className="justify-content-end align-items-center">
+                    {!user?.email? <div className="justify-content-end align-items-center">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
                                <Link class="nav-link" aria-current="page" to="/login">Login</Link>     
@@ -37,7 +39,12 @@ const NavBar = () => {
                                <Link class="nav-link" aria-current="page" to="/singup">Sing Up</Link>     
                             </li>
                         </ul>
-                    </div>
+                        </div> :
+                            <div className="justify-content-end align-items-center">
+                                <span>{user.displayName }</span>
+                                <button className="btn" onClick={logOut}>Log out  <i class="bi bi-box-arrow-in-right fs-5"></i></button>
+                        </div>
+                    }
                 </div>
             </div>
         </div>

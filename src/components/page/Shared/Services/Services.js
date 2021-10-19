@@ -5,7 +5,6 @@ import './Services.css'
 
 const Services = () => {
     const { services } = useServices();
-    console.log(services)
     return (
         <div className="container mt-5">
             <div className="row mt-5">
