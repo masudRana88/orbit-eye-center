@@ -6,8 +6,8 @@ import './Login.css'
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => console.log(data);
-    const { user, loginWirhGoogle, setInputPass, setInputEmail, logInwithEmail, loginWithGithub } = useAuth();
-    
+    const { loginWirhGoogle, setInputPass, setInputEmail, logInwithEmail, loginWithGithub } = useAuth();
+
     const getEmail = (e) => {
         setInputEmail(e.target.value)
     }

@@ -45,24 +45,26 @@ const useFirebase = () => {
         setIsLoding(true)
         signInWithPopup(auth, gitHubprovider)
             .then((result) => {
-             setUser(result.user)
+                setUser(result.user)
             })
             .catch((error) => {
             })
-        .finally(()=>setIsLoding(false))
+            .finally(() => setIsLoding(false))
     }
     // login with emain
     const logInwithEmail = () => {
         setIsLoding(true)
-         signInWithEmailAndPassword(auth, inputEmail, iputPass)
-        .then((userCredential) => {
-            setUser(userCredential.user)
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-        })
-        .finally(()=>setIsLoding(false))
+        signInWithEmailAndPassword(auth, inputEmail, iputPass)
+            .then((userCredential) => {
+                setUser(userCredential.user)
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+            })
+            .finally(() => {
+                setIsLoding(false)
+            })
     }
 
     // sing up with emaill
@@ -100,11 +102,13 @@ const useFirebase = () => {
         onAuthStateChanged(auth, (user) => {
         if (user) {
             setUser(user)
-        } else {
-           setUser({})
         }
-        });
+        else {
+           setUser({})
+            }
         setIsLoding(false)
+        });
+        
     },[])
 
     return {

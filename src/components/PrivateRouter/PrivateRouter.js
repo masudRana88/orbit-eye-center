@@ -6,7 +6,9 @@ const PrivateRouter = ({children, ...rest }) => {
     let { user, isLoding } = useAuth(); 
     console.log(isLoding)
     if (isLoding) {
-        return <h1>h1</h1>
+        return <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
     }
     return (
             <Route

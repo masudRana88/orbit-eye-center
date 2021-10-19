@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router';
 import useServices from '../../Hooks/useServices';
+import Faqs from '../Home/Faqs/Faqs';
 
 const SingleService = () => {
     const { serviceId } = useParams()
@@ -19,6 +20,7 @@ const SingleService = () => {
                     <button className="btn bg-color-reguler appoinment-btn mt-3 text-light">Book Appointment<i class="fas fa-notes-medical ms-2"></i></button>
                 </div>
             </div>
+            <Faqs></Faqs>
         </div>
     );
 };
