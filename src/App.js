@@ -12,10 +12,10 @@ import Home from "./components/page/Home/Home/Home";
 import Login from "./components/page/LogIn/Login/Login";
 import Singup from "./components/page/LogIn/Singup/Singup";
 import OurDoctors from "./components/page/OurDoctors/OurDoctors";
-import ServicesDetails from "./components/page/ServicesDetailes/ServicesDetails";
 import ServicesPage from "./components/page/ServicesPage/ServicesPage";
 import Footer from "./components/page/Shared/Footer/Footer";
 import NavBar from "./components/page/Shared/NavBar/NavBar";
+import SingleService from "./components/page/SingleService/SingleService";
 import AuthProvider from "./ContexApi/AuthProvider/AuthProvider";
 
 function App() {
@@ -29,9 +29,6 @@ function App() {
         </Route>
         <Route exact path="/home">
           <Home></Home>
-        </Route>
-        <Route exact path="/services">
-          <ServicesPage></ServicesPage>
         </Route>
         <Route exact path="/our-doctors">
           <OurDoctors></OurDoctors>
@@ -48,9 +45,12 @@ function App() {
         <Route exact path="/Singup">
          <Singup></Singup>
         </Route>
-        <Router path="/services/:servicesId">
-          <ServicesDetails></ServicesDetails>
-        </Router>
+        <Route exact path="/services">
+          <ServicesPage></ServicesPage>
+        </Route>
+        <Route exact path="/service/:serviceId">
+            <SingleService></SingleService>
+        </Route>
       </Switch>
       <Footer></Footer>
     </Router>

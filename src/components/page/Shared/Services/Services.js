@@ -25,7 +25,7 @@ const Services = () => {
                     <div class="card-body">
                         <h4 class="card-title">{service.name}</h4>
                         <p class="card-text">{service.discribtion.slice(0, 100)}...</p>
-                        <Link to={`/services/${service.id}`}><button className="btn bg-color-reguler text-light">Details <i class="bi bi-chevron-compact-right"></i></button></Link>        
+                        <Link to={`/service/${service.id}`}><button className="btn bg-color-reguler text-light">Details <i class="bi bi-chevron-compact-right"></i></button></Link>        
                     </div>
                     </div>
                 </div>)

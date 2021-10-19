@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
+import { useParams } from 'react-router';
 
 const Singup = () => {
+    const { name } = useParams()
+    console.log(name)
     const { user,setInputPass,setInputEmail, setInputName, singInWithEmaial, loginWirhGoogle, loginWithGithub } = useAuth();
     // react hoock form
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -18,6 +21,7 @@ const Singup = () => {
     const getPass = (e) => {
         setInputPass(e.target.value)
     }
+    console.log(user)
     return (
         <div>
              <div className="container my-container">

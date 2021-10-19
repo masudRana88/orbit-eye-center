@@ -21,8 +21,9 @@ const useFirebase = () => {
         updateProfile(auth.currentUser, {
         displayName: inputName
         }).then((result) => {
-            console.log(result)
+
         }).catch((error) => {
+            
         });
         
     }
