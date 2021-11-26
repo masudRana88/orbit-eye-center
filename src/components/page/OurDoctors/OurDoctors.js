@@ -1,8 +1,17 @@
 import React from 'react';
 import useDoctors from '../../Hooks/useDoctors';
+import Spiner from '../Shared/Spiner/Spiner';
 import './OurDoctors.css'
 const OurDoctors = () => {
-    const {doctors} = useDoctors()
+    const { doctors } = useDoctors()
+    if (!doctors) {
+        return (
+            <div>
+                <Spiner/>
+            </div>
+            
+        )
+    }
     return (
         <div className="container">
             <div className="row mt-5">

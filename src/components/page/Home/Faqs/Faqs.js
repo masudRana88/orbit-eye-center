@@ -1,10 +1,16 @@
 import React from 'react';
+import AskFqa from "../../../../images/ask.svg"
 
 const Faqs = () => {
     return (
         <div className="container mt-5">
             <h2 className="font-oswald fw-bold fs-1"><span className="color-reguler">Frequently</span> Asked Question</h2>
 
+            <div className="row my-4">
+                <div className="col-md-6 col-lg-6 col-sm-12">
+                    <img src={AskFqa } alt="" className="img-fluid"/>
+                </div>
+                <div className="col-md-6 col-lg-6 col-sm-12">
             <div class="accordion my-5" id="accordionExample">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingOne">
@@ -41,6 +47,8 @@ const Faqs = () => {
                         You already know that spending too much time in the sun can damage unprotected skin and increase your risk of developing skin cancer. That’s why you use sunscreen, cover your skin, and try to avoid the strong midday sunlight.But did you know that exposing your unprotected eyes to too much ultraviolet (UV) radiation can also damage the sensitive cells in your retinas, leaving them vulnerable to developing serious conditions that can lead to long-term vision loss?
                     </div>
                     </div>
+                </div>
+            </div>
                 </div>
             </div>
         </div>

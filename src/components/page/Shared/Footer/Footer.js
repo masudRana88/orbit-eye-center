@@ -7,6 +7,11 @@ const Footer = () => {
             <div className="row container  mx-auto pt-5 pb-2 text-light">
                 <div className="col-md-3 col-sm-12">
                     <h5>Orbit eye center</h5>
+                    <div className="row">
+                        <div className="col-12">
+                            <img src="https://web.programming-hero.com/static/media/ssl-commerce.1d268dce.png" alt="" className="img-fluid mt-3" />
+                        </div>
+                    </div>
                 </div>
                 <div className="col-md-4 col-sm-12 me-md-2 me-lg-2">
                     <h6>Links</h6>
@@ -30,7 +35,7 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <h6 className="text-center mt-3">© Copyright 2020 by oktilcal</h6>
+                <h6 className="text-center mt-3">Copyright © 2020 by Orbit Eye center</h6>
             </div>
             
        </footer>
