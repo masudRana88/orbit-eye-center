@@ -1,10 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import useServices from '../../../Hooks/useServices';
+import Spiner from '../Spiner/Spiner';
 import './Services.css'
 
 const Services = () => {
     const { services } = useServices();
+    if (!services) {
+        return (
+            <div>
+                <Spiner/>
+            </div>
+            
+        )
+    }
     return (
         <div className="container mt-5">
             <div className="row mt-5">

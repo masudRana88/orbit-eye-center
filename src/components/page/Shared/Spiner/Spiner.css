@@ -1,24 +1,11 @@
 .scaling-squares-spinner, .scaling-squares-spinner * {
       box-sizing: border-box;
     }
-    .spiner{
-        overflow: hidden;
-    }
-    .spiner-cointainer{
-        width: 100%;
-        height: 100vh;
-        position: absolute;
-        background-color: rgba(220, 238, 229, 0.945);
-        z-index: 1;
-        
-    }
+
     .scaling-squares-spinner {
       height: 65px;
       width: 65px;
-      position: absolute;
-      top: 20%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      position: relative;
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -33,7 +20,7 @@
       width: calc(65px * 0.25 / 1.3);
       margin-right: auto;
       margin-left: auto;
-      border: calc(65px * 0.04 / 1.3) solid #02C18D;
+      border: calc(65px * 0.04 / 1.3) solid #ff1d5e;
       position: absolute;
       animation-duration: 1250ms;
       animation-iteration-count: infinite;
