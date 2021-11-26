@@ -1,0 +1,12 @@
+.card-image-bg{
+    height: 18rem;
+    background-size: cover;
+}
+.card-image{
+    height: 18rem;
+    width: 100%;
+    transition: 0.5s;
+}
+.my-card:hover .card-image{
+    background-color: rgba(2, 193, 141, 0.4);
+}

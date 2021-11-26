@@ -1,0 +1,11 @@
+.contact-icon{
+    height: 60px;
+    width: 60px;
+    background-color: #02C18D;
+    border-radius: 50%;
+    color: white;
+}
+.my-icon{
+    align-items: center !important;
+    justify-content: center !;
+}
