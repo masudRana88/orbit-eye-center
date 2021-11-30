@@ -37,7 +37,7 @@ const OurDoctors = () => {
                               <a href="https://twitter.com/?lang=en"><i class="bi bi-twitter social-icon ms-2 color-reguler"></i></a>
                             </div>
                             <div className="col-6 d-flex justify-content-end">
-                                <button className="btn fw-bold text-primary">Call Now <i class="bi bi-telephone"></i></button>
+                                <button className="btn fw-bold btn-outline-primary">Call Now <i class="bi bi-telephone"></i></button>
                             </div>
                         </div>
                     </div>

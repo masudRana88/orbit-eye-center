@@ -8,24 +8,24 @@ const HeroSection = () => {
             <div class="carousel-item active">
                 <div class="d-block w-100 he-img-1">
                         <div className="hero-contant font-georama">
-                            <h1 className="mb-3">We bring therir world into Focuse</h1>
-                            <button className="btn bg-color-reguler text-light">Book Appoinment</button>
+                            <h1 className="mb-3 text-light">We bring therir world into Focuse</h1>
+                            <button className="btn bg-success text-light">Book Appoinment</button>
                         </div>
                 </div>
             </div>
             <div class="carousel-item">
                 <div class="d-block w-100 he-img-2">
                       <div className="hero-contant font-georama">
-                            <h1 className="mb-3">Orbit Here to Help yoy see Better</h1>
-                            <button className="btn bg-color-reguler text-light">Book Appoinment</button>
+                            <h1 className="mb-3 text-light">Orbit Here to Help yoy see Better</h1>
+                            <button className="btn bg-success text-light">Book Appoinment</button>
                         </div>  
                 </div>
             </div>
             <div class="carousel-item">
                 <div class="d-block w-100 he-img-3">
                      <div className="hero-contant font-georama">
-                            <h1 className="mb-3">Optometrst 	&amp; eyes car specilist</h1>
-                            <button className="btn bg-color-reguler text-light">Book Appoinment</button>
+                            <h1 className="mb-3 text-light">Optometrst 	&amp; eyes car specilist</h1>
+                            <button className="btn bg-success text-light">Book Appoinment</button>
                     </div>   
                 </div>
             </div>

@@ -10,7 +10,7 @@
     font-family: 'Oswald', sans-serif;
 }
 .color-reguler{
-    color: #02C18D;
+    color: #02C18D !important;
 }
 .bg-color-reguler{
     background-color: #02C18D;
