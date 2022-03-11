@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-This website for Orbit Eye center Hospital. [Website link](https://orbit-eye-center-b5e84.firebaseapp.com/p).
+This website for Orbit Eye center Hospital. [Website link](https://orbit-eye-center-b5e84.firebaseapp.com).
 
 ## How this website works
 * this website has 5 pages
